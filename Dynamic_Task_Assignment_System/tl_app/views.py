@@ -56,7 +56,7 @@ def project_progress_report(project):
 
 def project_completion_report(project):
     total_tasks = project.tasks.count()
-    done_tasks = project.tasks.filter(status='Done').count()
+    done_tasks = project.tasks.filter(status='DONE').count()
     completion_rate = (done_tasks / total_tasks) * 100 if total_tasks > 0 else 0
     return completion_rate
 

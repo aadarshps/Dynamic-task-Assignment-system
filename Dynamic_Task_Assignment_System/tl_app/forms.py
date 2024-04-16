@@ -24,7 +24,7 @@ from accounts.models import *
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['employee', 'project', 'name', 'description', 'deadline']
+        fields = ['employee', 'project', 'name', 'description', 'deadline','priority']
 
         widgets = {
             'deadline': forms.DateInput(attrs={'type': 'date'}),
@@ -35,7 +35,7 @@ class TaskForm(forms.ModelForm):
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
 
-        for field in ['employee', 'project', 'name', 'description', 'deadline']:
+        for field in ['employee', 'project', 'name', 'description', 'deadline','priority']:
             self.fields[field].required = True
 
         if user_location:
